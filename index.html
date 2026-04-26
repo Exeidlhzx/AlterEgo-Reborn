@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlterEgo Reborn</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #050505, #0a0f0a);
+      color: #e6edf3;
+    }header {
+  background: url('BANNER_URL_HERE') center/cover no-repeat;
+  text-align: center;
+  padding: 90px 20px;
+  position: relative;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+}
+
+header .content {
+  position: relative;
+  z-index: 1;
+}
+
+header img {
+  width: 110px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 10px #00ff88);
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 2.8em;
+  letter-spacing: 2px;
+  color: #ff3c3c;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.ip-box {
+  margin-top: 15px;
+  display: inline-block;
+  background: rgba(0,0,0,0.6);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(45deg, #ff0000, #00ff88);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ff88;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: #0d1117;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #1f2a1f;
+  box-shadow: 0 0 15px rgba(0,255,136,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255,0,0,0.3);
+}
+
+h2 {
+  border-left: 4px solid #00ff88;
+  padding-left: 10px;
+  color: #00ff88;
+}
+
+a.discord-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #5865F2, #00ff88);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+a.discord-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff88;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+  border-top: 1px solid #1f2a1f;
+}
+
+  </style>
+</head>
+<body>  <header>
+    <div class="content">
+      <img src="LOGO_URL_HERE" alt="logo">
+      <h1>AlterEgo Reborn</h1>
+      <p style="color:#00ff88">Private • Survival • PvP • Vanilla</p><div class="ip-box" id="ip">play.AlterEgo.id</div><br>
+  <button onclick="copyIP()">Copy IP</button>
+</div>
+
+  </header>  <section>
+    <h2>📜 Tentang Server</h2>
+    <div class="card">
+      <p>AlterEgo Reborn adalah server private eksklusif. Hanya pemain yang telah masuk whitelist atau mendapatkan izin langsung dari admin yang dapat mengakses server ini. Jika kamu tidak memiliki akses, silakan abaikan website ini.</p>
+    </div>
+  </section>  <section>
+    <h2>⚔️ Informasi Server</h2>
+    <div class="card">
+      <p><b>Tipe:</b> Survival Vanilla + PvP Bebas</p>
+      <p><b>Status:</b> Online 24 Jam</p>
+      <p><b>Restart:</b> Setiap hari pukul 00:00 untuk menjaga performa server tetap stabil</p>
+    </div>
+  </section>  <section>
+    <h2>📜 Peraturan</h2>
+    <div class="card">
+      <p>• Dilarang menggunakan cheat, hack, atau mod curang</p>
+      <p>• Dilarang memanfaatkan bug/exploit</p>
+      <p>• PvP bebas, tapi tetap sportif</p>
+      <p>• Toxic berlebihan tidak ditoleransi</p>
+      <p>• Keputusan admin bersifat mutlak</p>
+    </div>
+  </section>  <section>
+    <h2>🌐 Komunitas</h2>
+    <div class="card">
+      <p>Gabung Discord untuk whitelist dan info server.</p>
+      <a href="DISCORD_LINK_HERE" class="discord-btn">Join Discord</a>
+    </div>
+  </section>  <footer>
+    <p>© 2026 AlterEgo Reborn • Private Server</p>
+  </footer>  <script>
+    function copyIP() {
+      const ipText = document.getElementById("ip").innerText;
+      navigator.clipboard.writeText(ipText);
+      alert("IP disalin: " + ipText);
+    }
+  </script></body>
+</html>
