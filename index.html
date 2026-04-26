@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AlterEgo Reborn</title>
-
-<style>
+<title>AlterEgo Reborn</title><style>
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -18,14 +15,11 @@ header {
   position: relative;
   text-align: center;
   padding: 90px 20px;
-
-  /* FIX IMPORTANT: pakai raw link stabil */
   background-image: url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png');
   background-size: cover;
   background-position: center;
 }
 
-/* overlay */
 header::before {
   content: '';
   position: absolute;
@@ -36,6 +30,8 @@ header::before {
 .content {
   position: relative;
   z-index: 2;
+  max-width: 900px;
+  margin: auto;
 }
 
 .logo {
@@ -76,6 +72,7 @@ button {
   color: black;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 button:hover {
@@ -102,15 +99,23 @@ h2 {
   border: 1px solid #1f2a1f;
 }
 
+/* DISCORD BUTTON FIXED */
 .discord-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 12px 20px;
-  background: #5865F2;
+  margin-top: 12px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #5865F2, #00ff88);
   color: white;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
+  transition: 0.25s;
+  box-shadow: 0 0 10px rgba(88,101,242,0.4);
+}
+
+.discord-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px #5865F2, 0 0 18px #00ff88;
 }
 
 footer {
@@ -118,72 +123,54 @@ footer {
   padding: 20px;
   opacity: 0.6;
 }
-</style>
-</head>
 
-<body>
+</style></head><body><header>
+  <div class="content"><img class="logo"
+  src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png"
+  alt="logo">
 
-<header>
-  <div class="content">
+<h1>AlterEgo Reborn</h1>
+<div class="subtitle">Private • Survival • PvP • Vanilla</div>
 
-    <img class="logo"
-      src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png"
-      alt="logo">
-
-    <h1>AlterEgo Reborn</h1>
-    <div class="subtitle">Private • Survival • PvP • Vanilla</div>
-
-    <div class="ip-box" id="ip">play.AlterEgo.id</div><br>
-    <button onclick="copyIP()">Copy IP</button>
+<div class="ip-box" id="ip">play.AlterEgo.id</div><br>
+<button onclick="copyIP()">Copy IP</button>
 
   </div>
-</header>
-
-<section>
+</header><section>
   <h2>📜 Tentang Server</h2>
   <div class="card">
-    AlterEgo Reborn adalah server private eksklusif dengan whitelist. Kalau kamu bukan bagian dari sistem, ya… kamu cuma penonton 😏
+    AlterEgo Reborn adalah server private eksklusif dengan whitelist. Kalau kamu bukan bagian dari sistem, kamu hanya pengamat 😏
   </div>
-</section>
-
-<section>
+</section><section>
   <h2>⚔️ Informasi Server</h2>
   <div class="card">
     <p><b>Tipe:</b> Survival Vanilla + PvP Bebas</p>
     <p><b>Status:</b> Online 24 Jam</p>
     <p><b>Restart:</b> Setiap jam 00:00</p>
   </div>
-</section>
-
-<section>
+</section><section>
   <h2>📜 Peraturan</h2>
   <div class="card">
     <p>• No cheat / exploit</p>
-    <p>• PvP boleh, tapi fair</p>
+    <p>• PvP diperbolehkan</p>
     <p>• No grief berlebihan</p>
     <p>• Toxic = tindakan admin</p>
+    <p>• Keputusan admin final</p>
   </div>
-</section>
-
-<section>
+</section><section>
   <h2>🌐 Komunitas</h2>
   <div class="card">
-    Join Discord untuk whitelist.
-    <br>
-    <a class="discord-btn" href="https://discord.gg/9fXW4FDpv">Join Discord</a>
+    <p>Join Discord untuk whitelist & update server.</p><a class="discord-btn" href="https://discord.gg/9fXW4FDpv" target="_blank">
+  🚀 Join Discord
+</a>
+
   </div>
-</section>
-
-<footer>
-  © 2026 AlterEgo Reborn
-</footer>
-
-<script>
+</section><footer>
+  © 2026 AlterEgo Reborn • Private Server
+</footer><script>
 function copyIP() {
   navigator.clipboard.writeText(document.getElementById("ip").innerText);
   alert("IP disalin!");
 }
-</script>
-
-</body>
+</script></body>
 </html>
