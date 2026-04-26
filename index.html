@@ -8,46 +8,13 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #050505, #0a0f0a);
   color: #e6edf3;
-  overflow-x: hidden;
 }
 
-/* INTRO SCREEN */
-#intro {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle, #0a0f0a, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 9999;
-  animation: fadeOut 2s ease 2.5s forwards;
-}
-
-#intro h1 {
-  color: #00ff88;
-  font-size: 2.5em;
-  text-shadow: 0 0 20px #00ff88;
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-  from { transform: scale(1); opacity: 0.8; }
-  to { transform: scale(1.05); opacity: 1; }
-}
-
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-/* HEADER */
 header {
   position: relative;
   text-align: center;
   padding: 90px 20px;
-  background-image: url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png');
-  background-size: cover;
-  background-position: center;
+  background: url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png') center/cover no-repeat;
 }
 
 header::before {
@@ -81,19 +48,7 @@ h1 {
 
 .subtitle {
   color: #00ff88;
-  margin-bottom: 10px;
-}
-
-.status {
-  margin-top: 10px;
-  font-size: 0.9em;
-}
-
-.status span {
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(0,255,136,0.15);
-  border: 1px solid #00ff88;
+  margin-bottom: 15px;
 }
 
 .ip-box {
@@ -104,7 +59,6 @@ h1 {
   border: 1px solid #00ff88;
   box-shadow: 0 0 12px #00ff88;
   font-weight: bold;
-  margin-top: 10px;
 }
 
 button {
@@ -116,11 +70,6 @@ button {
   color: black;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 section {
@@ -152,65 +101,72 @@ h2 {
   text-decoration: none;
   border-radius: 10px;
   font-weight: bold;
-  transition: 0.25s;
-  box-shadow: 0 0 12px rgba(88,101,242,0.5);
 }
 
-.discord-btn:hover {
-  transform: scale(1.08);
-}
-
-/* WHITELIST GATE */
-#gate {
+/* PASSWORD MODAL (FIXED - NOT BLOCKING SITE) */
+#passwordModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.92);
-  display: flex;
+  background: rgba(0,0,0,0.85);
+  display: none; /* IMPORTANT FIX */
   align-items: center;
   justify-content: center;
-  z-index: 9998;
+  z-index: 9999;
 }
 
-.gate-box {
-  text-align: center;
-  padding: 30px;
-  border: 1px solid #00ff88;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00ff88;
-}
-
-footer {
-  text-align: center;
+.modal-box {
+  background: #0d1117;
   padding: 20px;
-  opacity: 0.6;
+  border-radius: 10px;
+  border: 1px solid #00ff88;
+  text-align: center;
+  width: 280px;
 }
-</style></head><body><!-- INTRO --><div id="intro">
-  <h1>ALTEREGO REBORN</h1>
-  <p style="color:#aaa">Loading world...</p>
-</div><!-- WHITELIST GATE --><div id="gate">
-  <div class="gate-box">
-    <h2>ACCESS CONTROL</h2>
-    <p>Whitelist required to enter server page</p>
-    <button onclick="enterSite()">Enter</button>
+
+input {
+  padding: 10px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+/* WHITELIST */
+.member-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.member {
+  background: #11161f;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #1f2a1f;
+}
+</style></head><body><!-- PASSWORD MODAL --><div id="passwordModal">
+  <div class="modal-box">
+    <h2 style="color:#00ff88;">Access IP Server</h2>
+    <p>Masukkan password whitelist</p>
+    <input id="passInput" type="password" placeholder="password">
+    <br>
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error" style="color:red;"></p>
   </div>
 </div><header>
-  <div class="content"><img class="logo"
-  src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png"
-  alt="logo">
+  <div class="content"><img class="logo" src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png">
 
 <h1>AlterEgo Reborn</h1>
 <div class="subtitle">Private • Survival • PvP • Vanilla</div>
 
-<div class="status">Status: <span id="status">ONLINE</span> • Players: <span id="players">0</span></div>
-
-<div class="ip-box">play.AlterEgo.id</div><br>
-<button onclick="copyIP()">Copy IP</button>
+<div class="ip-box" id="ip">*** LOCKED ***</div><br>
+<button onclick="unlockIP()">Unlock IP</button>
 
   </div>
 </header><section>
   <h2>📜 Tentang Server</h2>
   <div class="card">
-    Server private whitelist eksklusif dengan dunia survival PvP bebas.
+    Server whitelist eksklusif dengan survival PvP bebas.
   </div>
 </section><section>
   <h2>⚔️ Informasi Server</h2>
@@ -220,34 +176,58 @@ footer {
     <p>Restart tiap 00:00</p>
   </div>
 </section><section>
+  <h2>📜 Rules</h2>
+  <div class="card">
+    <p>• No cheat / hack</p>
+    <p>• PvP allowed (fair play)</p>
+    <p>• No grief berlebihan</p>
+    <p>• Toxic = admin action</p>
+    <p>• Respect semua player</p>
+  </div>
+</section><section>
+  <h2>🌐 Whitelist Members</h2>
+  <div class="card">
+    <div class="member-list" id="members"></div>
+  </div>
+</section><section>
   <h2>🌐 Komunitas</h2>
   <div class="card">
-    <p>Join Discord untuk whitelist & event</p><a class="discord-btn"
-   href="https://discord.gg/9fXW4FDpv"
-   target="_blank">
-  🚀 Join Discord
-</a>
-
+    <a class="discord-btn" href="https://discord.gg/9fXW4FDpv" target="_blank">
+      🚀 Join Discord
+    </a>
   </div>
 </section><footer>
   © 2026 AlterEgo Reborn
 </footer><script>
-function copyIP() {
-  navigator.clipboard.writeText("play.AlterEgo.id");
-  alert("IP copied!");
+const SERVER_PASSWORD = "alterEgoACAB";
+const whitelist = ["Sola", "Joey", "Nix", "Amaya", "Gosh", "Reina"];
+
+function unlockIP() {
+  document.getElementById("passwordModal").style.display = "flex";
 }
 
-function enterSite() {
-  document.getElementById("gate").style.display = "none";
+function checkPassword() {
+  const input = document.getElementById("passInput").value;
+
+  if (input === SERVER_PASSWORD) {
+    document.getElementById("passwordModal").style.display = "none";
+    document.getElementById("ip").innerText = "play.AlterEgo.id";
+    loadMembers();
+  } else {
+    document.getElementById("error").innerText = "Wrong password!";
+  }
 }
 
-// fake live system
-setInterval(() => {
-  document.getElementById("players").innerText = Math.floor(Math.random() * 12) + 1;
-}, 2000);
+function loadMembers() {
+  const container = document.getElementById("members");
+  container.innerHTML = "";
 
-setTimeout(() => {
-  document.getElementById("intro").style.display = "none";
-}, 3000);
+  whitelist.forEach(name => {
+    const div = document.createElement("div");
+    div.className = "member";
+    div.innerText = name;
+    container.appendChild(div);
+  });
+}
 </script></body>
 </html>
