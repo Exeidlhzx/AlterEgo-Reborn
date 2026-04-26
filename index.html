@@ -10,27 +10,33 @@
       background: linear-gradient(135deg, #050505, #0a0f0a);
       color: #e6edf3;
     }header {
-  background: url('BANNER_URL_HERE') center/cover no-repeat;
+  position: relative;
   text-align: center;
   padding: 90px 20px;
-  position: relative;
+  background: url('BANNER_URL_HERE') center/cover no-repeat;
+  overflow: hidden;
 }
 
-header::after {
+/* overlay */
+header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
-}
-
-header .content {
-  position: relative;
+  background: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.95));
   z-index: 1;
 }
 
-header img {
-  width: 110px;
-  margin-bottom: 10px;
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px;
   filter: drop-shadow(0 0 10px #00ff88);
 }
 
@@ -42,15 +48,19 @@ h1 {
   text-shadow: 0 0 10px #ff0000;
 }
 
+.subtitle {
+  color: #00ff88;
+  margin-bottom: 15px;
+}
+
 .ip-box {
-  margin-top: 15px;
   display: inline-block;
-  background: rgba(0,0,0,0.6);
   padding: 12px 20px;
   border-radius: 8px;
-  font-weight: bold;
+  background: rgba(0,0,0,0.6);
   border: 1px solid #00ff88;
-  box-shadow: 0 0 10px #00ff88;
+  box-shadow: 0 0 12px #00ff88;
+  font-weight: bold;
 }
 
 button {
@@ -67,7 +77,6 @@ button {
 
 button:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 15px #00ff88;
 }
 
 section {
@@ -76,42 +85,34 @@ section {
   margin: auto;
 }
 
+h2 {
+  color: #00ff88;
+  border-left: 4px solid #00ff88;
+  padding-left: 10px;
+}
+
 .card {
   background: #0d1117;
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-top: 15px;
   border: 1px solid #1f2a1f;
-  box-shadow: 0 0 15px rgba(0,255,136,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(255,0,0,0.3);
-}
-
-h2 {
-  border-left: 4px solid #00ff88;
-  padding-left: 10px;
-  color: #00ff88;
+  box-shadow: 0 0 15px rgba(0,255,136,0.08);
 }
 
 a.discord-btn {
   display: inline-block;
   margin-top: 10px;
   padding: 12px 20px;
-  background: linear-gradient(45deg, #5865F2, #00ff88);
+  background: #5865F2;
   color: white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
-  transition: 0.2s;
 }
 
 a.discord-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00ff88;
+  box-shadow: 0 0 12px #5865F2;
 }
 
 footer {
@@ -123,48 +124,49 @@ footer {
 
   </style>
 </head>
-<body>  <header>
-    <div class="content">
-      <img src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png" alt="logo">
-      <h1>AlterEgo Reborn</h1>
-      <p style="color:#00ff88">Private • Survival • PvP • Vanilla</p><div class="ip-box" id="ip">play.AlterEgo.id</div><br>
-  <button onclick="copyIP()">Copy IP</button>
-</div>
+<body><header>
+  <div class="content">
+    <img class="logo" src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png" alt="logo">
+    <h1>AlterEgo Reborn</h1>
+    <div class="subtitle">Private • Survival • PvP • Vanilla</div><div class="ip-box" id="ip">play.AlterEgo.id</div><br>
+<button onclick="copyIP()">Copy IP</button>
 
-  </header>  <section>
-    <h2>📜 Tentang Server</h2>
-    <div class="card">
-      <p>AlterEgo Reborn adalah server private eksklusif. Hanya pemain yang telah masuk whitelist atau mendapatkan izin langsung dari admin yang dapat mengakses server ini. Jika kamu tidak memiliki akses, silakan abaikan website ini.</p>
-    </div>
-  </section>  <section>
-    <h2>⚔️ Informasi Server</h2>
-    <div class="card">
-      <p><b>Tipe:</b> Survival Vanilla + PvP Bebas</p>
-      <p><b>Status:</b> Online 24 Jam</p>
-      <p><b>Restart:</b> Setiap hari pukul 00:00 untuk menjaga performa server tetap stabil</p>
-    </div>
-  </section>  <section>
-    <h2>📜 Peraturan</h2>
-    <div class="card">
-      <p>• Dilarang menggunakan cheat, hack, atau mod curang</p>
-      <p>• Dilarang memanfaatkan bug/exploit</p>
-      <p>• PvP bebas, tapi tetap sportif</p>
-      <p>• Toxic berlebihan tidak ditoleransi</p>
-      <p>• Keputusan admin bersifat mutlak</p>
-    </div>
-  </section>  <section>
-    <h2>🌐 Komunitas</h2>
-    <div class="card">
-      <p>Gabung Discord untuk whitelist dan info server.</p>
-      <a href="DISCORD_LINK_HERE" class="discord-btn">Join Discord</a>
-    </div>
-  </section>  <footer>
-    <p>© 2026 AlterEgo Reborn • Private Server</p>
-  </footer>  <script>
-    function copyIP() {
-      const ipText = document.getElementById("ip").innerText;
-      navigator.clipboard.writeText(ipText);
-      alert("IP disalin: " + ipText);
-    }
-  </script></body>
+  </div>
+</header><section>
+  <h2>📜 Tentang Server</h2>
+  <div class="card">
+    AlterEgo Reborn adalah server private eksklusif yang hanya dapat diakses oleh pemain yang masuk whitelist atau mendapatkan izin admin. Jika kamu tidak termasuk, silakan abaikan halaman ini.
+  </div>
+</section><section>
+  <h2>⚔️ Informasi Server</h2>
+  <div class="card">
+    <p><b>Tipe:</b> Survival Vanilla + PvP Bebas</p>
+    <p><b>Status:</b> Online 24 Jam</p>
+    <p><b>Restart:</b> Setiap pukul 00:00 untuk stabilitas server</p>
+  </div>
+</section><section>
+  <h2>📜 Peraturan</h2>
+  <div class="card">
+    <p>• No cheat / hack / exploit</p>
+    <p>• PvP diperbolehkan, tetap fair play</p>
+    <p>• Dilarang griefing berlebihan</p>
+    <p>• Toxic berlebihan = tindakan admin</p>
+    <p>• Keputusan admin bersifat final</p>
+  </div>
+</section><section>
+  <h2>🌐 Komunitas</h2>
+  <div class="card">
+    Join Discord untuk whitelist & info server.
+    <br>
+    <a class="discord-btn" href="DISCORD_LINK_HERE">Join Discord</a>
+  </div>
+</section><footer>
+  © 2026 AlterEgo Reborn • Private Server
+</footer><script>
+function copyIP() {
+  const ip = document.getElementById("ip").innerText;
+  navigator.clipboard.writeText(ip);
+  alert("IP disalin: " + ip);
+}
+</script></body>
 </html>
