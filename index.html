@@ -1,20 +1,28 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlterEgo Reborn</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #050505, #0a0f0a);
-      color: #e6edf3;
-    }header {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlterEgo Reborn</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #050505, #0a0f0a);
+  color: #e6edf3;
+}
+
+/* HEADER */
+header {
   position: relative;
   text-align: center;
   padding: 90px 20px;
-  background: url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/refs/heads/main/Untitled101_20260426231946.png') center/cover no-repeat;
-  overflow: hidden;
+
+  /* FIX IMPORTANT: pakai raw link stabil */
+  background-image: url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png');
+  background-size: cover;
+  background-position: center;
 }
 
 /* overlay */
@@ -22,15 +30,12 @@ header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.95));
-  z-index: 1;
+  background: rgba(0,0,0,0.65);
 }
 
 .content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
-  margin: auto;
 }
 
 .logo {
@@ -43,7 +48,6 @@ header::before {
 h1 {
   margin: 10px 0;
   font-size: 2.8em;
-  letter-spacing: 2px;
   color: #ff3c3c;
   text-shadow: 0 0 10px #ff0000;
 }
@@ -72,11 +76,10 @@ button {
   color: black;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 button:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 section {
@@ -97,10 +100,9 @@ h2 {
   border-radius: 10px;
   margin-top: 15px;
   border: 1px solid #1f2a1f;
-  box-shadow: 0 0 15px rgba(0,255,136,0.08);
 }
 
-a.discord-btn {
+.discord-btn {
   display: inline-block;
   margin-top: 10px;
   padding: 12px 20px;
@@ -111,62 +113,77 @@ a.discord-btn {
   font-weight: bold;
 }
 
-a.discord-btn:hover {
-  box-shadow: 0 0 12px #5865F2;
-}
-
 footer {
   text-align: center;
   padding: 20px;
   opacity: 0.6;
-  border-top: 1px solid #1f2a1f;
 }
-
-  </style>
+</style>
 </head>
-<body><header>
+
+<body>
+
+<header>
   <div class="content">
-    <img class="logo" src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png" alt="logo">
+
+    <img class="logo"
+      src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png"
+      alt="logo">
+
     <h1>AlterEgo Reborn</h1>
-    <div class="subtitle">Private • Survival • PvP • Vanilla</div><div class="ip-box" id="ip">play.AlterEgo.id</div><br>
-<button onclick="copyIP()">Copy IP</button>
+    <div class="subtitle">Private • Survival • PvP • Vanilla</div>
+
+    <div class="ip-box" id="ip">play.AlterEgo.id</div><br>
+    <button onclick="copyIP()">Copy IP</button>
 
   </div>
-</header><section>
+</header>
+
+<section>
   <h2>📜 Tentang Server</h2>
   <div class="card">
-    AlterEgo Reborn adalah server private eksklusif yang hanya dapat diakses oleh pemain yang masuk whitelist atau mendapatkan izin admin. Jika kamu tidak termasuk, silakan abaikan halaman ini.
+    AlterEgo Reborn adalah server private eksklusif dengan whitelist. Kalau kamu bukan bagian dari sistem, ya… kamu cuma penonton 😏
   </div>
-</section><section>
+</section>
+
+<section>
   <h2>⚔️ Informasi Server</h2>
   <div class="card">
     <p><b>Tipe:</b> Survival Vanilla + PvP Bebas</p>
     <p><b>Status:</b> Online 24 Jam</p>
-    <p><b>Restart:</b> Setiap pukul 00:00 untuk stabilitas server</p>
+    <p><b>Restart:</b> Setiap jam 00:00</p>
   </div>
-</section><section>
+</section>
+
+<section>
   <h2>📜 Peraturan</h2>
   <div class="card">
-    <p>• No cheat / hack / exploit</p>
-    <p>• PvP diperbolehkan, tetap fair play</p>
-    <p>• Dilarang griefing berlebihan</p>
-    <p>• Toxic berlebihan = tindakan admin</p>
-    <p>• Keputusan admin bersifat final</p>
+    <p>• No cheat / exploit</p>
+    <p>• PvP boleh, tapi fair</p>
+    <p>• No grief berlebihan</p>
+    <p>• Toxic = tindakan admin</p>
   </div>
-</section><section>
+</section>
+
+<section>
   <h2>🌐 Komunitas</h2>
   <div class="card">
-    Join Discord untuk whitelist & info server.
+    Join Discord untuk whitelist.
     <br>
     <a class="discord-btn" href="DISCORD_LINK_HERE">Join Discord</a>
   </div>
-</section><footer>
-  © 2026 AlterEgo Reborn • Private Server
-</footer><script>
+</section>
+
+<footer>
+  © 2026 AlterEgo Reborn
+</footer>
+
+<script>
 function copyIP() {
-  const ip = document.getElementById("ip").innerText;
-  navigator.clipboard.writeText(ip);
-  alert("IP disalin: " + ip);
+  navigator.clipboard.writeText(document.getElementById("ip").innerText);
+  alert("IP disalin!");
 }
-</script></body>
+</script>
+
+</body>
 </html>
