@@ -15,6 +15,7 @@ body {
 
 /* HEADER */
 header {
+  position:relative;
   text-align:center;
   padding:100px 20px;
   background:url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png') center/cover no-repeat;
@@ -24,7 +25,7 @@ header::after {
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.75);
 }
 
 .content {
@@ -45,6 +46,15 @@ h1 {
   color:#00ff88;
 }
 
+.ip-box {
+  margin-top:10px;
+  padding:12px 20px;
+  border-radius:8px;
+  border:1px solid #00ff88;
+  display:inline-block;
+  background:#000;
+}
+
 /* SECTION */
 section {
   padding:50px 20px;
@@ -52,46 +62,36 @@ section {
   margin:auto;
 }
 
+h2 {
+  color:#00ff88;
+  border-left:4px solid #00ff88;
+  padding-left:10px;
+}
+
 .card {
   background:#0d1117;
   padding:20px;
   border-radius:10px;
   margin-top:15px;
-  box-shadow:0 0 15px rgba(0,255,136,0.1);
 }
 
 /* BUTTON */
-.buy-btn {
+.btn {
   display:inline-block;
-  margin-top:15px;
-  padding:12px 25px;
+  margin-top:10px;
+  padding:12px 20px;
   border-radius:8px;
-  background:linear-gradient(45deg,#ff0000,#00ff88);
-  color:black;
+  text-decoration:none;
   font-weight:bold;
-  text-decoration:none;
 }
 
-.discord-btn {
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 20px;
-  background:#5865F2;
-  border-radius:6px;
-  color:white;
-  text-decoration:none;
-}
+.discord { background:#5865F2; color:white; }
+.buy { background:linear-gradient(45deg,#ff0000,#00ff88); color:black; }
 
+/* WARNING */
 .warning {
-  margin-top:15px;
-  color:#ffcc00;
-}
-
-.rank {
   margin-top:10px;
-  padding:10px;
-  background:#11161f;
-  border-radius:8px;
+  color:#ffcc00;
 }
 </style>
 </head>
@@ -105,40 +105,57 @@ section {
 <h1>AlterEgo Reborn</h1>
 <div class="subtitle">Private • Survival • PvP • Vanilla</div>
 
+<div class="ip-box">play.AlterEgo.id</div>
+
 </div>
 </header>
 
 <section>
-<h2>👑 Rank Server</h2>
+<h2>📜 Tentang Server</h2>
 <div class="card">
-
-<div class="rank">VIP</div>
-<div class="rank">ELITE</div>
-<div class="rank">LEGEND</div>
-
-<a class="buy-btn" href="LINK_FORM_KAMU" target="_blank">
-🚀 Beli Rank
-</a>
-
+Server ini merupakan server private yang hanya dapat diakses oleh pemain yang sudah masuk whitelist atau mendapatkan izin langsung dari admin. Jika kamu tidak termasuk, silakan abaikan halaman ini.
 </div>
 </section>
 
 <section>
-<h2>💖 Donasi</h2>
+<h2>⚔️ Informasi Server</h2>
 <div class="card">
-<a class="buy-btn" href="https://trakteer.id/indra456" target="_blank">☕ Trakteer</a>
-<a class="buy-btn" href="https://saweria.co/XnotFound" target="_blank">💸 Saweria</a>
+<p>• Mode: Survival Vanilla + PvP</p>
+<p>• Online: 24 Jam</p>
+<p>• Restart: Setiap pukul 00:00</p>
+</div>
+</section>
 
-<div class="warning">⚠️ Disarankan mematikan VPN agar tidak terjadi masalah</div>
+<section>
+<h2>📜 Rules</h2>
+<div class="card">
+<p>• No cheat / hack / exploit</p>
+<p>• PvP diperbolehkan</p>
+<p>• No grief berlebihan</p>
+<p>• Hormati semua player</p>
+<p>• Keputusan admin final</p>
 </div>
 </section>
 
 <section>
 <h2>🌐 Komunitas</h2>
 <div class="card">
-<a class="discord-btn" href="https://discord.gg/9fXW4FDpv" target="_blank">
+<a class="btn discord" href="https://discord.gg/9fXW4FDpv" target="_blank">
 Join Discord
 </a>
+</div>
+</section>
+
+<section>
+<h2>👑 Rank (Opsional)</h2>
+<div class="card">
+<p>Ingin support server dan mendapatkan benefit tambahan?</p>
+
+<a class="btn buy" href="LINK_FORM_KAMU" target="_blank">
+Beli Rank
+</a>
+
+<div class="warning">⚠️ Disarankan mematikan VPN agar tidak terjadi masalah koneksi</div>
 </div>
 </section>
 
