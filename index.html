@@ -13,252 +13,92 @@ body {
   margin:0;
   font-family:'Segoe UI',sans-serif;
   background:#050505;
-  color:#e6edf3;
+  color:#fff;
+  text-align:center;
 }
 
-/* HEADER */
 header {
-  position:relative;
-  text-align:center;
-  padding:100px 20px;
+  padding:80px 20px;
   background:url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png') center/cover no-repeat;
 }
-header::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-}
-
-.content { position:relative; z-index:2; }
 
 .logo {
   width:120px;
-  margin-bottom:10px;
-  filter:drop-shadow(0 0 12px #00ff88);
-}
-
-h1 { color:#ff3c3c; margin:10px 0; }
-.subtitle { color:#00ff88; }
-
-.ip-box {
-  margin-top:10px;
-  padding:12px 20px;
-  border-radius:8px;
-  border:1px solid #00ff88;
-  display:inline-block;
-  background:#000;
 }
 
 button {
   margin-top:10px;
-  padding:10px 18px;
+  padding:10px 20px;
   border:none;
   border-radius:6px;
   background:linear-gradient(45deg,#ff0000,#00ff88);
   cursor:pointer;
-  font-weight:bold;
-}
-
-section {
-  padding:50px 20px;
-  max-width:1000px;
-  margin:auto;
-}
-
-h2 {
-  color:#00ff88;
-  border-left:4px solid #00ff88;
-  padding-left:10px;
 }
 
 .card {
-  background:#0d1117;
+  margin:30px auto;
+  max-width:400px;
+  background:#111;
   padding:20px;
   border-radius:10px;
-  margin-top:15px;
-  box-shadow:0 0 15px rgba(0,255,136,0.1);
 }
 
-/* RANK */
-.rank-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-}
-
-.rank {
-  background:#11161f;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
-  border:1px solid #1f2a1f;
-}
-
-/* BUTTON */
-.discord-btn, .donate-btn {
-  display:inline-block;
-  margin-top:10px;
-  padding:12px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-}
-
-.discord-btn { background:#5865F2; }
-.donate-btn { background:#ff4d6d; }
-
-/* WARNING */
-.warning {
-  margin-top:15px;
-  color:#ffcc00;
-}
-
-/* MODAL */
-.modal {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal-box {
-  background:#0d1117;
-  padding:20px;
-  border-radius:10px;
-  width:300px;
-  text-align:center;
-  border:1px solid #00ff88;
-}
-
-.modal input {
+input {
   width:90%;
   padding:10px;
   margin-top:10px;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <h3>Beli Rank</h3>
-    <input id="username" placeholder="Minecraft Username">
-    <input id="kode" placeholder="Kode / Discord">
-    <br>
-    <button onclick="kirim()">Kirim</button>
-    <button onclick="tutup()">Batal</button>
-    <p id="status"></p>
-  </div>
-</div>
-
 <header>
-<div class="content">
 <img class="logo" src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png">
-
 <h1>AlterEgo Reborn</h1>
-<div class="subtitle">Private • Survival • PvP • Vanilla</div>
-
-<div class="ip-box" id="ip">*** LOCKED ***</div><br>
-<button onclick="unlock()">Unlock IP</button>
-</div>
+<p>Private Server</p>
 </header>
 
-<section>
-<h2>👑 Rank Shop</h2>
 <div class="card">
-<div class="rank-grid">
+<h2>🛒 Beli Rank</h2>
 
-<div class="rank">
-<h3>VIP</h3>
-<button onclick="beli('VIP')">Buy</button>
-</div>
+<input id="username" placeholder="Minecraft Username">
+<input id="kontak" placeholder="Discord / WA">
 
-<div class="rank">
-<h3>ELITE</h3>
-<button onclick="beli('ELITE')">Buy</button>
-</div>
+<br>
+<button onclick="kirim()">Kirim Order</button>
 
-<div class="rank">
-<h3>LEGEND</h3>
-<button onclick="beli('LEGEND')">Buy</button>
+<p id="status"></p>
 </div>
-
-</div>
-</div>
-</section>
-
-<section>
-<h2>💖 Donasi</h2>
-<div class="card">
-<a class="donate-btn" href="https://trakteer.id/indra456" target="_blank">Trakteer</a>
-<a class="donate-btn" href="https://saweria.co/XnotFound" target="_blank">Saweria</a>
-
-<div class="warning">⚠️ Disarankan mematikan VPN agar sistem bekerja dengan baik</div>
-</div>
-</section>
-
-<section>
-<h2>🌐 Komunitas</h2>
-<div class="card">
-<a class="discord-btn" href="https://discord.gg/9fXW4FDpv" target="_blank">Join Discord</a>
-</div>
-</section>
 
 <script>
 /* INIT EMAILJS */
 emailjs.init("r4Px8wBYxZT8-HkVl");
 
-const PASS = "alter123";
-let rankDipilih = "";
-
-/* IP LOCK */
-function unlock(){
-  const p = prompt("Password:");
-  if(p === PASS){
-    document.getElementById("ip").innerText = "play.AlterEgo.id";
-  } else {
-    alert("Salah!");
-  }
-}
-
-/* OPEN SHOP */
-function beli(rank){
-  rankDipilih = rank;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function tutup(){
-  document.getElementById("modal").style.display = "none";
-}
-
-/* SEND EMAIL */
+/* FUNCTION KIRIM (INI DOANG YANG PENTING) */
 function kirim(){
-  const user = document.getElementById("username").value;
-  const kode = document.getElementById("kode").value;
 
-  if(!user || !kode){
-    document.getElementById("status").innerText = "Lengkapi data!";
+  const username = document.getElementById("username").value;
+  const kontak = document.getElementById("kontak").value;
+
+  if(!username || !kontak){
+    document.getElementById("status").innerText = "Isi semua dulu!";
     return;
   }
 
   emailjs.send("service_i97769i","template_eq7f1r7",{
-    rank: rankDipilih,
-    username: user,
-    password: kode
+    name: username,
+    message: "Order Rank | Kontak: " + kontak
   })
   .then(() => {
-    document.getElementById("status").innerText = "Order terkirim!";
+    document.getElementById("status").innerText = "✅ BERHASIL DIKIRIM!";
   })
   .catch((err) => {
     console.log(err);
-    document.getElementById("status").innerText = "Gagal kirim!";
+    document.getElementById("status").innerText = "❌ GAGAL KIRIM!";
   });
+
 }
 </script>
 
