@@ -5,102 +5,146 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AlterEgo Reborn</title>
 
-<!-- EMAILJS V4 -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <style>
 body {
   margin:0;
   font-family:'Segoe UI',sans-serif;
-  background:#050505;
-  color:#fff;
-  text-align:center;
+  background:linear-gradient(135deg,#050505,#0a0f0a);
+  color:#e6edf3;
 }
 
+/* HEADER */
 header {
-  padding:80px 20px;
+  text-align:center;
+  padding:100px 20px;
   background:url('https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled101_20260426231946.png') center/cover no-repeat;
+}
+
+header::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+}
+
+.content {
+  position:relative;
+  z-index:2;
 }
 
 .logo {
   width:120px;
+  filter:drop-shadow(0 0 10px #00ff88);
 }
 
-button {
-  margin-top:10px;
-  padding:10px 20px;
-  border:none;
-  border-radius:6px;
-  background:linear-gradient(45deg,#ff0000,#00ff88);
-  cursor:pointer;
+h1 {
+  color:#ff3c3c;
+}
+
+.subtitle {
+  color:#00ff88;
+}
+
+/* SECTION */
+section {
+  padding:50px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
 .card {
-  margin:30px auto;
-  max-width:400px;
-  background:#111;
+  background:#0d1117;
   padding:20px;
   border-radius:10px;
+  margin-top:15px;
+  box-shadow:0 0 15px rgba(0,255,136,0.1);
 }
 
-input {
-  width:90%;
-  padding:10px;
+/* BUTTON */
+.buy-btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  border-radius:8px;
+  background:linear-gradient(45deg,#ff0000,#00ff88);
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.discord-btn {
+  display:inline-block;
   margin-top:10px;
+  padding:10px 20px;
+  background:#5865F2;
+  border-radius:6px;
+  color:white;
+  text-decoration:none;
 }
 
+.warning {
+  margin-top:15px;
+  color:#ffcc00;
+}
+
+.rank {
+  margin-top:10px;
+  padding:10px;
+  background:#11161f;
+  border-radius:8px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
+<div class="content">
 <img class="logo" src="https://raw.githubusercontent.com/Exeidlhzx/AlterEgo-Reborn/main/Untitled68_20260215202445.png">
+
 <h1>AlterEgo Reborn</h1>
-<p>Private Server</p>
+<div class="subtitle">Private • Survival • PvP • Vanilla</div>
+
+</div>
 </header>
 
+<section>
+<h2>👑 Rank Server</h2>
 <div class="card">
-<h2>🛒 Beli Rank</h2>
 
-<input id="username" placeholder="Minecraft Username">
-<input id="kontak" placeholder="Discord / WA">
+<div class="rank">VIP</div>
+<div class="rank">ELITE</div>
+<div class="rank">LEGEND</div>
 
-<br>
-<button onclick="kirim()">Kirim Order</button>
+<a class="buy-btn" href="LINK_FORM_KAMU" target="_blank">
+🚀 Beli Rank
+</a>
 
-<p id="status"></p>
 </div>
+</section>
 
-<script>
-/* INIT EMAILJS */
-emailjs.init("r4Px8wBYxZT8-HkVl");
+<section>
+<h2>💖 Donasi</h2>
+<div class="card">
+<a class="buy-btn" href="https://trakteer.id/indra456" target="_blank">☕ Trakteer</a>
+<a class="buy-btn" href="https://saweria.co/XnotFound" target="_blank">💸 Saweria</a>
 
-/* FUNCTION KIRIM (INI DOANG YANG PENTING) */
-function kirim(){
+<div class="warning">⚠️ Disarankan mematikan VPN agar tidak terjadi masalah</div>
+</div>
+</section>
 
-  const username = document.getElementById("username").value;
-  const kontak = document.getElementById("kontak").value;
+<section>
+<h2>🌐 Komunitas</h2>
+<div class="card">
+<a class="discord-btn" href="https://discord.gg/9fXW4FDpv" target="_blank">
+Join Discord
+</a>
+</div>
+</section>
 
-  if(!username || !kontak){
-    document.getElementById("status").innerText = "Isi semua dulu!";
-    return;
-  }
-
-  emailjs.send("service_i97769i","template_eq7f1r7",{
-    name: username,
-    message: "Order Rank | Kontak: " + kontak
-  })
-  .then(() => {
-    document.getElementById("status").innerText = "✅ BERHASIL DIKIRIM!";
-  })
-  .catch((err) => {
-    console.log(err);
-    document.getElementById("status").innerText = "❌ GAGAL KIRIM!";
-  });
-
-}
-</script>
+<footer style="text-align:center; padding:20px; opacity:0.6;">
+© 2026 AlterEgo Reborn
+</footer>
 
 </body>
 </html>
